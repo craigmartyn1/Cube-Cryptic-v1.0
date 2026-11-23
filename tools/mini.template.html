@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#09111f"><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="icon-192.png"><meta name="mobile-web-app-capable" content="yes"><title>Cube Cryptic</title>
+<style>
+:root{color-scheme:dark;--bg:#08101d;--panel:#111d30;--line:#30435f;--ink:#f3f7ff;--muted:#9dafc9;--mint:#83f2c6;--blue:#8ecbff;--gold:#ffd17b;--red:#ff8c9e}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -10%,#243e60 0,#101c30 37%,var(--bg) 72%);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;padding:12px 12px 40px;max-width:520px;margin:auto}
+h1{font-size:1.15rem;letter-spacing:.12em;text-align:center;margin:6px 0}h1 span{color:var(--mint)}.top{display:flex;gap:8px;justify-content:center;font-size:.8rem;color:var(--muted);margin-bottom:10px}.top b{color:var(--ink)}
+#grid{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;width:min(100%,360px);margin:0 auto 10px;background:var(--line);padding:3px;border-radius:10px}
+.cell{aspect-ratio:1;border:0;border-radius:5px;background:#1a2b45;color:var(--ink);position:relative;padding:0;font:inherit}.cell b{font-size:1.5rem;font-weight:800}.cell i{position:absolute;left:4px;top:2px;font-size:.62rem;font-style:normal;color:var(--muted)}
+.cell.blk{background:#050a12}.cell.word{background:#25476e}.cell.sel{background:var(--mint);color:#06210f}.cell.sel i{color:#06210f}.cell.bad b{color:var(--red)}
+#bar{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:flex;gap:8px;align-items:center;margin:0 auto 10px;width:min(100%,360px)}#bar div{flex:1;min-width:0}#bar small{color:var(--mint);font-weight:800;letter-spacing:.08em}#bar p{margin:2px 0 0}
+.btn{border:1px solid #405675;background:#192943;color:var(--ink);border-radius:10px;padding:8px 12px;font:inherit}
+#kb{width:min(100%,420px);margin:0 auto 12px;display:grid;gap:6px}.kr{display:flex;gap:4px;justify-content:center}.kr button{flex:1;max-width:40px;height:44px;border:0;border-radius:7px;background:#22344f;color:var(--ink);font:700 1rem system-ui}.kr .w{max-width:56px}
+.tools{display:flex;gap:8px;justify-content:center;margin-bottom:12px}h3{font-size:.72rem;letter-spacing:.12em;color:var(--mint);margin:12px 0 6px}
+.cl{list-style:none;margin:0;padding:0;display:grid;gap:6px}.cl li button{width:100%;text-align:left;background:#0d1829;border:1px solid #2b3d58;border-radius:10px;color:var(--ink);padding:8px 10px;font:inherit;font-size:.9rem}.cl li.cur button{border-color:var(--mint)}.cl li.done button{background:#12372f;border-color:var(--mint)}.cl b{color:var(--gold);margin-right:6px}.cl small{display:block;color:var(--muted);margin-top:3px}
+#win{display:none;background:#12372f;border:1px solid var(--mint);border-radius:14px;padding:14px;text-align:center;margin-bottom:12px}#win.show{display:block}#win .st{font-size:1.8rem;color:var(--gold)}
+a{color:var(--blue)}footer{text-align:center;color:var(--muted);font-size:.75rem;margin-top:20px}
+#tabs{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:0 auto 10px;width:min(100%,360px)}#tabs button{border:1px solid #405675;background:#142138;color:var(--ink);border-radius:9px;padding:6px 0;font:inherit;font-size:.8rem;line-height:1.1}#tabs button.cur{border-color:var(--mint);background:#1d3a52}#tabs button.done{background:#12372f}#tabs small{display:block;color:var(--gold);font-size:.6rem;height:.8em}
+#modal{display:none;position:fixed;inset:0;background:#000a;z-index:50;align-items:center;justify-content:center;padding:16px}#modal.show{display:flex}#modal .box{background:var(--panel);border:1px solid var(--mint);border-radius:16px;padding:18px;max-width:360px;width:100%;text-align:center}#modal .st{font-size:2rem;color:var(--gold)}
+.win .cell{animation:glow .9s ease-in-out infinite alternate}@keyframes glow{to{box-shadow:0 0 14px 2px #83f2c6aa}}.confetti{position:fixed;top:-16px;width:9px;height:14px;z-index:60;pointer-events:none;animation:fall 2.6s linear forwards}@keyframes fall{to{transform:translateY(105vh) rotate(720deg)}}@media(prefers-reduced-motion:reduce){.win .cell,.confetti{animation:none}}
+#hud{display:flex;justify-content:space-between;width:min(100%,360px);margin:0 auto 8px;font-size:.85rem;color:var(--muted)}#hud b{color:var(--gold)}#cubes{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:8px}#cubes button{border:1px solid #405675;background:#142138;color:var(--ink);border-radius:9px;padding:4px 9px;font:inherit;font-size:.78rem}#cubes button.cur{border-color:var(--mint)}#cubes button.done{background:#12372f}#cubes button:disabled{opacity:.45}
+body{position:relative}#helpBtn{position:absolute;right:12px;top:6px;padding:2px 11px;border-radius:50%}
+#cube3d{height:104px;perspective:520px;display:flex;justify-content:center;align-items:center;margin-bottom:4px}.cube{width:60px;height:60px;position:relative;transform-style:preserve-3d;transition:transform .7s ease}
+.cf{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid #405675;background:#142138dd;font-weight:800;color:var(--ink);backface-visibility:hidden;cursor:pointer}.cf small{color:var(--gold);font-size:.55rem;height:.8em}.cf.done{background:#12372fdd;border-color:var(--mint)}.cf.cur{box-shadow:inset 0 0 0 2px var(--mint)}
+.f0{transform:translateZ(30px)}.f1{transform:rotateY(90deg) translateZ(30px)}.f2{transform:rotateY(180deg) translateZ(30px)}.f3{transform:rotateY(-90deg) translateZ(30px)}.f4{transform:rotateX(90deg) translateZ(30px)}.f5{transform:rotateX(-90deg) translateZ(30px)}
+body[data-stage="6"]{--mint:#8ecbff}body[data-stage="7"]{--mint:#ffd17b}body[data-stage="8"]{--mint:#ff9fb2}body[data-stage="9"]{--mint:#c9a6ff}@media(prefers-reduced-motion:reduce){.cube{transition:none}}
+</style></head><body>
+<h1>CUBE <span>CRYPTIC</span></h1><button class="btn" id="helpBtn" onclick="showHelp()" aria-label="How to play">?</button>
+<div id="cube3d" aria-hidden="true"><div class="cube" id="cubeEl"></div></div>
+<div id="hud"></div><div id="cubes" role="tablist" aria-label="Cubes"></div>
+<div id="tabs" role="tablist" aria-label="Cube faces"></div>
+<div class="top"><span>Solved <b id="sv">0/10</b></span><span>Hints <b id="hn">0</b></span><span>Time <b id="tm">0:00</b></span></div>
+<div id="win"><div class="st" id="stars"></div><p id="winTxt"></p><button class="btn" onclick="nextFace()">Next face</button></div>
+<div id="grid" role="grid" aria-label="5 by 5 crossword"></div>
+<p style="text-align:center;color:var(--muted);font-size:.78rem;margin:0 0 8px">Numbers mark where words start: → across, ↓ down. Tap a square twice to switch direction.</p>
+<div id="bar"><button class="btn" onclick="step(-1)" aria-label="Previous clue">‹</button><div><small id="cn"></small><p id="ct"></p></div><button class="btn" onclick="step(1)" aria-label="Next clue">›</button></div>
+<div id="kb"></div>
+<div class="tools"><button class="btn" onclick="checkAll()">Check</button><button class="btn" onclick="hint()">Hint (reveal letter)</button></div>
+<p id="msg" style="text-align:center;color:var(--gold);font-size:.85rem;min-height:1.2em;margin:0 0 8px"></p>
+<h3>ACROSS</h3><ul class="cl" id="ca"></ul><h3>DOWN</h3><ul class="cl" id="cd"></ul>
+<div id="modal" role="dialog" aria-modal="true" aria-labelledby="mh"><div class="box"><h2 id="mh"></h2><div id="mb"></div><div class="tools" id="mbtn"></div></div></div>
+<footer>Black-square cryptic crosswords · 6 faces per cube</footer>
+<script>
+const DATA = /*DATA*/;
+const CUBES=DATA.cubes,$=id=>document.getElementById(id),KEY='cubeLadder_v1';
+//LADDER-START
+const RANKS=['Novice','Apprentice','Solver','Adept','Expert','Master','Grandmaster'];
+const CFG={allow:1.5,heavy:2.5,heavyRun:2,maxTokens:9,cubesPerStage:2};
+function cubeGrade(h,n){const a=h/n;return a<=1?'mastered':a<=CFG.allow?'solid':a>=CFG.heavy?'heavy':'cleared'}
+const sizesOf=m=>[...new Set(m.map(c=>c.size))].sort((a,b)=>a-b);
+const req=(m,size)=>m.filter(c=>c.size===size).slice(0,CFG.cubesPerStage);
+function stageAvg(m,res,size){let h=0,f=0;req(m,size).forEach(c=>{h+=(res[c.id]||{hints:0}).hints;f+=c.faces});return f?h/f:0}
+function promotes(m,res,size){return req(m,size).every(c=>res[c.id]&&res[c.id].done)&&stageAvg(m,res,size)<=CFG.allow}
+function currentStage(m,res){const ss=sizesOf(m);let cur=ss[0];for(let i=0;i<ss.length-1;i++){if(promotes(m,res,ss[i]))cur=ss[i+1];else break}return cur}
+//LADDER-END
+const META=CUBES.map(c=>({id:c.id,size:c.size,faces:c.faces.length}));
+function rev(){let h=5381,t=JSON.stringify(CUBES.map(c=>c.faces.map(f=>[f.grid,f.clues.map(q=>q.q)])));for(let i=0;i<t.length;i++)h=((h<<5)+h+t.charCodeAt(i))|0;return''+h}
+const fresh=f=>({L:f.grid.map(r=>[...r].map(()=>'')),hints:0,t:0,done:false,award:false});
+let ci=0,fi=0,C,F,G,N,slots,num,order,L,S,sel,dir,wrong=new Set(),t0=Date.now();
+let ST=CUBES.map(cu=>cu.faces.map(fresh)),CD=CUBES.map(()=>false),RES={},P={tokens:5,cap:0,recent:[],day:''};
+const stage=()=>{const s=currentStage(META,RES);return P.cap?Math.min(s,P.cap):s};
+function unlocked(i){const cu=CUBES[i];if(cu.size>stage())return false;const prev=CUBES.slice(0,i).filter(c=>c.size===cu.size).pop();return !prev||!!(RES[prev.id]&&RES[prev.id].done)}
+const isB=(r,c)=>r<0||c<0||r>=N||c>=N||G[r][c]==='#';
+const stars=i=>S[i].hints===0?3:S[i].hints<=3?2:1;
+function msg(t){$('msg').textContent=t;clearTimeout(msg.t);msg.t=setTimeout(()=>$('msg').textContent='',4000)}
+function setupCube(i){ci=i;C=CUBES[i];S=ST[i];const u=S.findIndex(x=>!x.done);setup(u<0?0:u)}
+function setup(i){F=C.faces[i];fi=i;N=F.size;G=F.grid.map(r=>r.split(''));slots=[];num={};let k=0;
+ for(let r=0;r<N;r++)for(let c=0;c<N;c++){if(isB(r,c))continue;const sA=isB(r,c-1)&&!isB(r,c+1),sD=isB(r-1,c)&&!isB(r+1,c);if(sA||sD)num[r+','+c]=++k;
+  for(const[d,s]of[['A',sA],['D',sD]])if(s){const cells=[];let a=r,b=c;while(!isB(a,b)){cells.push([a,b]);d==='A'?b++:a++}slots.push({d,n:k,cells,clue:F.clues.find(x=>x.d===d&&x.n===k),ans:cells.map(([x,y])=>G[x][y]).join('')})}}
+ order=[...slots.filter(s=>s.d==='A'),...slots.filter(s=>s.d==='D')];L=S[i].L;wrong=new Set();dir='A';const f=slots[0].cells[0];sel={r:f[0],c:f[1]};t0=Date.now()}
+const ROT=['rotateX(-20deg) rotateY(-28deg)','rotateX(-20deg) rotateY(-118deg)','rotateX(-20deg) rotateY(-208deg)','rotateX(-20deg) rotateY(62deg)','rotateX(-72deg) rotateY(-12deg)','rotateX(72deg) rotateY(12deg)'];
+const slotStartsAt=(r,c,d)=>slots.some(s=>s.d===d&&s.cells[0][0]===r&&s.cells[0][1]===c);
+const slotAt=(r,c,d)=>slots.find(s=>s.d===d&&s.cells.some(([a,b])=>a===r&&b===c));
+const word=s=>s.cells.map(([a,b])=>L[a][b]).join(''),solved=s=>word(s)===s.ans;
+const secs=()=>S[fi].done?S[fi].t:S[fi].t+Math.floor((Date.now()-t0)/1000),fmt=t=>Math.floor(t/60)+':'+String(t%60).padStart(2,'0');
+function why(c,a){const w=c.w;return w.t==='anagram'?`${w.fodder} is an anagram of ${a}; “${w.ind}” is the anagram indicator.`:w.t==='hidden'?`${a} is hidden inside “${w.text}”; “${w.ind}” signals it.`:w.t==='charade'?w.parts.map(p=>`${p[0]} (${p[1]})`).join(' + ')+` = ${a}.`:w.t==='deletion'?`${w.src} without ${w.removed} leaves ${a}; “${w.ind}” signals the deletion.`:w.t==='reversal'?`${w.src} (${w.gloss}) reversed is ${a}; “${w.ind}” signals the reversal.`:`${a} fits both definitions.`}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({rev:rev(),ci,fi,ST:ST.map((cu,k)=>cu.map((x,i)=>({L:x.L,hints:x.hints,award:x.award,done:x.done,t:k===ci&&i===fi&&!x.done?x.t+Math.floor((Date.now()-t0)/1000):x.t}))),CD,RES,P}))}catch(e){}}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(!s||s.rev!==rev()||!Array.isArray(s.ST)||s.ST.length!==CUBES.length)return;
+ s.ST.forEach((cu,k)=>cu.forEach((x,i)=>{const f=CUBES[k].faces[i];if(!f)return;ST[k][i]={L:f.grid.map((r,a)=>[...r].map((ch,b)=>ch==='#'?'':String(((x.L||[])[a]||[])[b]||'').slice(0,1).toUpperCase())),hints:x.hints|0,t:x.t|0,done:x.done===true,award:x.award===true}}));
+ CD=CUBES.map((_,k)=>(s.CD||[])[k]===true);RES=s.RES&&typeof s.RES==='object'?s.RES:{};if(s.P&&typeof s.P==='object')P={tokens:Math.min(Math.max(s.P.tokens|0,0),CFG.maxTokens),cap:s.P.cap|0,recent:Array.isArray(s.P.recent)?s.P.recent.slice(-4):[],day:String(s.P.day||'')};
+ ci=Math.min(Math.max(s.ci|0,0),CUBES.length-1);if(!unlocked(ci))ci=0}catch(e){}}
+function render(){
+ const g=$('grid'),cur=slotAt(sel.r,sel.c,dir);g.innerHTML='';g.style.gridTemplateColumns=`repeat(${N},1fr)`;
+ for(let r=0;r<N;r++)for(let c=0;c<N;c++){const e=document.createElement('button');e.className='cell';
+  if(isB(r,c)){e.className+=' blk';e.disabled=true;e.setAttribute('aria-hidden','true')}else{
+   if(cur&&cur.cells.some(([a,b])=>a===r&&b===c))e.className+=' word';if(r===sel.r&&c===sel.c)e.className+=' sel';if(wrong.has(r+','+c))e.className+=' bad';
+   e.innerHTML=(num[r+','+c]?'<i>'+num[r+','+c]+(slotStartsAt(r,c,'A')?'→':'')+(slotStartsAt(r,c,'D')?'↓':'')+'</i>':'')+'<b>'+L[r][c]+'</b>';e.setAttribute('aria-label','Row '+(r+1)+' column '+(c+1)+(L[r][c]?', '+L[r][c]:', empty'));e.onclick=()=>pick(r,c)}
+  g.appendChild(e)}
+ if(cur){$('cn').textContent=cur.n+' '+(cur.d==='A'?'ACROSS':'DOWN');$('ct').textContent=cur.clue?cur.clue.q:'Clue missing'}
+ for(const d of['A','D']){const ul=$(d==='A'?'ca':'cd');ul.innerHTML='';slots.filter(s=>s.d===d).forEach(s=>{const li=document.createElement('li'),ok=solved(s);li.className=(ok?'done ':'')+(s===cur?'cur':'');
+  const b=document.createElement('button');b.innerHTML='<b></b><span></span>'+(ok?'<small></small>':'');b.querySelector('b').textContent=s.n;b.querySelector('span').textContent=s.clue?s.clue.q:'Clue missing';if(ok)b.querySelector('small').textContent=why(s.clue,s.ans);b.onclick=()=>goto(s);li.appendChild(b);ul.appendChild(li)})}
+ const st=stage(),ss=sizesOf(META),rk=RANKS[Math.min(ss.indexOf(st),RANKS.length-1)],inSt=CUBES.filter(c=>c.size===st);
+ $('hud').innerHTML=`<span><b>${rk}</b> · ${st}×${st}${P.cap?' (practice)':''}</span><span>Cube ${Math.max(inSt.indexOf(C),0)+1}/${inSt.length} · 💡 <b id="tok">${P.tokens}</b></span>`;
+ document.body.dataset.stage=st;
+ const ce=$('cubeEl');if(!ce.children.length)for(let i=0;i<6;i++){const f=document.createElement('div');f.onclick=()=>toFace(i);ce.appendChild(f)}
+ [...ce.children].forEach((f,i)=>{f.className='cf f'+i+(i===fi?' cur':'')+(S[i]&&S[i].done?' done':'');f.innerHTML=(i+1)+'<small>'+(S[i]&&S[i].done?'★'.repeat(stars(i)):'')+'</small>'});ce.style.transform=ROT[fi];
+ const cb=$('cubes');cb.innerHTML='';CUBES.forEach((cu,k)=>{const b=document.createElement('button'),u=unlocked(k),d=!!(RES[cu.id]&&RES[cu.id].done);b.className=(k===ci?'cur ':'')+(d?'done':'');b.disabled=!u;b.textContent=(u?'':'🔒 ')+(d?'✓ ':'')+cu.size+'×'+cu.size+' #'+(CUBES.filter(c=>c.size===cu.size).indexOf(cu)+1);b.setAttribute('aria-label','Cube '+(k+1)+(u?'':', locked'));b.onclick=()=>toCube(k);cb.appendChild(b)});
+ {const mx=Math.max(...ss),b=document.createElement('button');b.disabled=true;b.textContent='🔒 '+(mx+1)+'×'+(mx+1)+' soon';b.setAttribute('aria-label',(mx+1)+' by '+(mx+1)+' stage, coming soon');cb.appendChild(b)}
+ const tb=$('tabs');tb.innerHTML='';C.faces.forEach((f,i)=>{const b=document.createElement('button');b.className=(i===fi?'cur ':'')+(S[i].done?'done':'');b.setAttribute('role','tab');b.setAttribute('aria-label','Face '+(i+1)+(S[i].done?', cleared':''));b.innerHTML=(i+1)+'<small>'+(S[i].done?'★'.repeat(stars(i)):'')+'</small>';b.onclick=()=>toFace(i);tb.appendChild(b)});
+ $('sv').textContent=slots.filter(solved).length+'/'+slots.length;$('hn').textContent=S[fi].hints;tick();
+ const d=S[fi].done;$('win').classList.toggle('show',d);if(d){$('stars').textContent='★'.repeat(stars(fi))+'☆'.repeat(3-stars(fi));$('winTxt').textContent='Face '+(fi+1)+' cleared in '+fmt(S[fi].t)+' with '+S[fi].hints+' hint'+(S[fi].hints===1?'':'s')+'.'+(stars(fi)<3?' Finish with no hints for 3 stars.':'')}
+ const kb=$('kb');if(!kb.children.length){['QWERTYUIOP','ASDFGHJKL','ZXCVBNM⌫'].forEach(row=>{const d=document.createElement('div');d.className='kr';[...row].forEach(ch=>{const b=document.createElement('button');b.textContent=ch;if(ch==='⌫'){b.className='w';b.setAttribute('aria-label','Backspace');b.onclick=back}else b.onclick=()=>type(ch);d.appendChild(b)});kb.appendChild(d)})}
+ save()}
+function tick(){$('tm').textContent=fmt(secs())}
+function leave(){if(!S[fi].done)S[fi].t+=Math.floor((Date.now()-t0)/1000)}
+function toFace(i){leave();setup(i);render()}
+function toCube(k){if(!unlocked(k))return;leave();setupCube(k);$('modal').classList.remove('show');render()}
+function nextFace(){const n=S.findIndex((x,i)=>!x.done&&i>fi),m=n>=0?n:S.findIndex(x=>!x.done);toFace(m<0?(fi+1)%S.length:m)}
+function pick(r,c){if(r===sel.r&&c===sel.c){const o=dir==='A'?'D':'A';if(slotAt(r,c,o))dir=o}else{sel={r,c};const st=slots.filter(s=>s.cells[0][0]===r&&s.cells[0][1]===c);if(st.length&&!st.some(s=>s.d===dir))dir=st[0].d;else if(!slotAt(r,c,dir))dir=dir==='A'?'D':'A'}render()}
+function goto(s){const e=s.cells.find(([a,b])=>!L[a][b])||s.cells[0];sel={r:e[0],c:e[1]};dir=s.d;render()}
+function step(n){const i=order.indexOf(slotAt(sel.r,sel.c,dir));goto(order[(i+n+order.length)%order.length])}
+function type(ch){if(S[fi].done)return;const cur=slotAt(sel.r,sel.c,dir);L[sel.r][sel.c]=ch;wrong.delete(sel.r+','+sel.c);
+ const i=cur.cells.findIndex(([a,b])=>a===sel.r&&b===sel.c),nx=cur.cells.slice(i+1).find(([a,b])=>!L[a][b])||cur.cells[i+1];if(nx)sel={r:nx[0],c:nx[1]};finish();render()}
+function back(){if(S[fi].done)return;const cur=slotAt(sel.r,sel.c,dir);if(L[sel.r][sel.c]){L[sel.r][sel.c]=''}else{const i=cur.cells.findIndex(([a,b])=>a===sel.r&&b===sel.c);if(i>0){sel={r:cur.cells[i-1][0],c:cur.cells[i-1][1]};L[sel.r][sel.c]=''}}wrong.clear();render()}
+function hint(){if(S[fi].done||L[sel.r][sel.c]===G[sel.r][sel.c])return;if(P.tokens<=0){msg('Out of hints. Clear a face without hints, or come back tomorrow, to earn more.');return}P.tokens--;L[sel.r][sel.c]=G[sel.r][sel.c];S[fi].hints++;wrong.delete(sel.r+','+sel.c);finish();render()}
+function checkAll(){wrong=new Set();for(let r=0;r<N;r++)for(let c=0;c<N;c++)if(L[r][c]&&L[r][c]!==G[r][c])wrong.add(r+','+c);render()}
+function nextCube(){for(let j=1;j<=CUBES.length;j++){const k=(ci+j)%CUBES.length;if(k!==ci&&unlocked(k)&&!(RES[CUBES[k].id]&&RES[CUBES[k].id].done))return k}return -1}
+function finish(){if(S[fi].done||!L.every((row,r)=>row.every((v,c)=>G[r][c]==='#'||v===G[r][c])))return;S[fi].t+=Math.floor((Date.now()-t0)/1000);S[fi].done=true;
+ if(S[fi].hints===0&&!S[fi].award){S[fi].award=true;P.tokens=Math.min(P.tokens+1,CFG.maxTokens);msg('Hint-free face: +1 💡')}
+ if(S.every(x=>x.done)&&!CD[ci]){const r=cubeComplete();render();celebrate(()=>showCube(r))}}
+function cubeComplete(){CD[ci]=true;const H=S.reduce((a,x)=>a+x.hints,0),n=S.length,time=S.reduce((a,x)=>a+x.t,0),st=S.reduce((a,_,i)=>a+stars(i),0),g=cubeGrade(H,n),prev=RES[C.id],before=stage(),ss=sizesOf(META);
+ RES[C.id]=!prev||H<prev.hints?{done:true,hints:H,faces:n,stars:Math.max(st,prev?prev.stars:0),time}:{...prev,stars:Math.max(st,prev.stars)};
+ const bonus=g==='mastered'?2:g==='solid'?1:0;P.tokens=Math.min(P.tokens+bonus,CFG.maxTokens);P.recent=[...(P.recent||[]),g].slice(-CFG.heavyRun);let note='';
+ if(P.recent.length>=CFG.heavyRun&&P.recent.every(x=>x==='heavy')&&C.size>ss[0]){P.cap=ss[ss.indexOf(C.size)-1];P.recent=[];note='demoted'}else if(P.cap&&C.size<=P.cap&&g!=='heavy'){P.cap=0}
+ const after=stage(),mx=Math.max(...sizesOf(META));return{H,n,time,st,g,bonus,note,promoted:after>before,stage:after,next:nextCube(),soon:C.size===mx&&promotes(META,RES,mx),mx}}
+function celebrate(done){if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){done();return}
+ const g=$('grid');g.classList.add('win');for(let i=0;i<40;i++){const c=document.createElement('i');c.className='confetti';c.style.cssText='left:'+Math.random()*100+'vw;background:'+['#83f2c6','#8ecbff','#ffd17b','#ff8c9e'][i%4]+';animation-delay:'+Math.random()*.8+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),3600)}
+ let f=0;const t=setInterval(()=>{if(f<S.length){setup(f);render();f++}else{clearInterval(t);g.classList.remove('win');setup(0);render();done()}},420)}
+function showCube(r){const lab={mastered:'Mastered',solid:'Solid',cleared:'Cleared',heavy:'Cleared with heavy hints'}[r.g],avg=Math.round(r.st/r.n);
+ $('mh').textContent='Cube cracked! 🎉';
+ $('mb').innerHTML=`<p class="st">${'★'.repeat(avg)}${'☆'.repeat(3-avg)}</p><p><b>${lab}</b> · ${r.H} hint${r.H===1?'':'s'} · ${fmt(r.time)}</p>${r.bonus?`<p>+${r.bonus} 💡 earned</p>`:''}`
+  +(r.promoted?`<p>🚀 New stage unlocked: ${r.stage}×${r.stage}</p>`:'')+(r.note==='demoted'?`<p>Too many hints in a row: back to ${r.stage}×${r.stage} to rebuild. Your stars are safe.</p>`:'')
+  +(r.soon?`<p>🚀 You cleared the ${r.mx}×${r.mx} stage! The ${r.mx+1}×${r.mx+1} stage is coming in an update.</p>`:'')
+  +(r.next<0&&!r.promoted&&!r.soon?'<p><small>Every available cube cleared. More are on the way, or replay one for fewer hints.</small></p>':'');
+ const bt=$('mbtn');bt.innerHTML='';const add=(t,f)=>{const b=document.createElement('button');b.className='btn';b.textContent=t;b.onclick=f;bt.appendChild(b)};
+ if(r.next>=0)add('Next cube',()=>toCube(r.next));add('Replay cube',replay);add('Close',()=>$('modal').classList.remove('show'));$('modal').classList.add('show');bt.firstChild.focus()}
+function showHelp(){$('mh').textContent='How to play';
+ $('mb').innerHTML='<div style="text-align:left;font-size:.9rem"><p>Tap a square and type. Tap it again to switch across ↔ down. Numbers with arrows (→ ↓) show where words start.</p><p>Each clue has a <b>definition</b> plus <b>wordplay</b>:</p><p>• <b>Anagram</b>: “Had dinner: eat, badly” → ATE<br>• <b>Hidden</b>: “Net seen in cobweb” → WEB<br>• <b>Charade</b>: “Encountered: me and time” → MET<br>• <b>Deletion</b>: “Bare: snaked, losing its head” → NAKED<br>• <b>Reversal</b>: “Hint: hole, going back” → TIP<br>• <b>Double</b>: “Took; or a wrap” → STOLE</p><p>Solved clues explain their wordplay. Hints cost a 💡 and count against your stars. Clear cubes with few hints to climb to bigger grids; too many hints sends you back a size.</p></div>';
+ const bt=$('mbtn');bt.innerHTML='';const b=document.createElement('button');b.className='btn';b.textContent='Got it';b.onclick=()=>$('modal').classList.remove('show');bt.appendChild(b);$('modal').classList.add('show');bt.firstChild.focus();try{localStorage.setItem('cubeHowTo_v1','1')}catch(e){}}
+function replay(){S.forEach((x,i)=>{ST[ci][i]=fresh(C.faces[i])});S=ST[ci];CD[ci]=false;$('modal').classList.remove('show');setup(0);render()}
+addEventListener('keydown',e=>{if(e.key==='Escape'){$('modal').classList.remove('show');return}if($('modal').classList.contains('show')||e.ctrlKey||e.metaKey||e.altKey)return;const m={ArrowRight:[0,1],ArrowLeft:[0,-1],ArrowDown:[1,0],ArrowUp:[-1,0]}[e.key];
+ if(/^[a-zA-Z]$/.test(e.key))type(e.key.toUpperCase());else if(e.key==='Backspace')back();else if(m){let r=sel.r+m[0],c=sel.c+m[1];if(!isB(r,c)){dir=m[0]?'D':'A';sel={r,c};if(!slotAt(r,c,dir))dir=m[0]?'A':'D';render()}}});
+load();const today=new Date().toISOString().slice(0,10);if(P.day!==today){if(P.day)P.tokens=Math.min(P.tokens+1,CFG.maxTokens);P.day=today}
+setupCube(ci);setInterval(tick,1000);render();try{if(!localStorage.getItem('cubeHowTo_v1'))showHelp()}catch(e){}
+if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol))navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script></body></html>

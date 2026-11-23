@@ -1,0 +1,35 @@
+name: Validate Cube Cryptic
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  html-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check HTML file exists
+        run: test -s index.html
+      - name: Check required game markers
+        run: |
+          grep -q '<!doctype html>' index.html
+          grep -q 'Cube Cryptic' index.html
+      - name: Check JavaScript syntax
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          source = Path("index.html").read_text(encoding="utf-8")
+          scripts = re.findall(r"<script\b[^>]*>(.*?)</script>", source, re.S | re.I)
+          Path("/tmp/cube-cryptic-inline.js").write_text("\n".join(scripts), encoding="utf-8")
+          PY
+          node --check /tmp/cube-cryptic-inline.js
+      - name: Check mini 5x5 face data (geometry, numbering, wordplay)
+        run: python tools/validate_mini.py
+      - name: Check index.html is built from its source data
+        run: |
+          python tools/build_mini.py
+          git diff --exit-code index.html sw.js

@@ -1,0 +1,1685 @@
+{
+ "cubes": [
+  {
+   "id": "cube-5-1",
+   "name": "Cube 1",
+   "size": 5,
+   "faces": [
+    {
+     "id": "mini-1",
+     "size": 5,
+     "grid": [
+      "ATE##",
+      "GIANT",
+      "ERROR",
+      "DELTA",
+      "##YEP"
+     ],
+     "clues": [
+      {
+       "d": "A",
+       "n": 1,
+       "q": "Had dinner: eat, badly (3)",
+       "w": {
+        "t": "anagram",
+        "fodder": "EAT",
+        "ind": "badly"
+       }
+      },
+      {
+       "d": "A",
+       "n": 4,
+       "q": "Huge: good, one and a worker (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "G",
+          "good"
+         ],
+         [
+          "I",
+          "one"
+         ],
+         [
+          "ANT",
+          "worker"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 7,
+       "q": "Mistake: go astray, alternatively (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "ERR",
+          "go astray"
+         ],
+         [
+          "OR",
+          "alternatively"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 8,
+       "q": "River mouth; or Greek letter (5)",
+       "w": {
+        "t": "double"
+       }
+      },
+      {
+       "d": "A",
+       "n": 9,
+       "q": "Informal agreement: unknown record (3)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "Y",
+          "unknown"
+         ],
+         [
+          "EP",
+          "record"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "D",
+       "n": 1,
+       "q": "Old: paged, losing opener (4)",
+       "w": {
+        "t": "deletion",
+        "src": "PAGED",
+        "removed": "P",
+        "ind": "losing opener"
+       }
+      },
+      {
+       "d": "D",
+       "n": 2,
+       "q": "Grow weary: rite, upset (4)",
+       "w": {
+        "t": "anagram",
+        "fodder": "RITE",
+        "ind": "upset"
+       }
+      },
+      {
+       "d": "D",
+       "n": 3,
+       "q": "Ahead of time, found in clear lyrics (5)",
+       "w": {
+        "t": "hidden",
+        "text": "clear lyrics",
+        "ind": "found in"
+       }
+      },
+      {
+       "d": "D",
+       "n": 5,
+       "q": "Memo: tone, changed (4)",
+       "w": {
+        "t": "anagram",
+        "fodder": "TONE",
+        "ind": "changed"
+       }
+      },
+      {
+       "d": "D",
+       "n": 6,
+       "q": "Snare: piece, returned (4)",
+       "w": {
+        "t": "reversal",
+        "src": "PART",
+        "gloss": "piece",
+        "ind": "returned"
+       }
+      }
+     ]
+    },
+    {
+     "id": "mini-2",
+     "size": 5,
+     "grid": [
+      "#TEN#",
+      "CORAL",
+      "AWAKE",
+      "RESET",
+      "#LED#"
+     ],
+     "clues": [
+      {
+       "d": "A",
+       "n": 1,
+       "q": "Number found in kitten (3)",
+       "w": {
+        "t": "hidden",
+        "text": "kitten",
+        "ind": "found in"
+       }
+      },
+      {
+       "d": "D",
+       "n": 1,
+       "q": "Drying cloth: pull and elevated railway (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "TOW",
+          "pull"
+         ],
+         [
+          "EL",
+          "elevated railway"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "D",
+       "n": 2,
+       "q": "Rub out periods with English (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "ERAS",
+          "periods"
+         ],
+         [
+          "E",
+          "English"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "D",
+       "n": 3,
+       "q": "Bare: snaked, losing its head (5)",
+       "w": {
+        "t": "deletion",
+        "src": "SNAKED",
+        "removed": "S",
+        "ind": "losing"
+       }
+      },
+      {
+       "d": "A",
+       "n": 4,
+       "q": "Reef builder: choral, with H dropped (5)",
+       "w": {
+        "t": "deletion",
+        "src": "CHORAL",
+        "removed": "H",
+        "ind": "dropped"
+       }
+      },
+      {
+       "d": "D",
+       "n": 4,
+       "q": "Vehicle seen in scarf (3)",
+       "w": {
+        "t": "hidden",
+        "text": "scarf",
+        "ind": "seen in"
+       }
+      },
+      {
+       "d": "D",
+       "n": 5,
+       "q": "Allow; or rent out (3)",
+       "w": {
+        "t": "double"
+       }
+      },
+      {
+       "d": "A",
+       "n": 6,
+       "q": "Not asleep: a plus funeral vigil (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "A",
+          "a"
+         ],
+         [
+          "WAKE",
+          "funeral vigil"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 7,
+       "q": "Start again: terse, revised (5)",
+       "w": {
+        "t": "anagram",
+        "fodder": "TERSE",
+        "ind": "revised"
+       }
+      },
+      {
+       "d": "A",
+       "n": 8,
+       "q": "Guided: lead, missing a (3)",
+       "w": {
+        "t": "deletion",
+        "src": "LEAD",
+        "removed": "A",
+        "ind": "missing"
+       }
+      }
+     ]
+    },
+    {
+     "id": "mini-3",
+     "size": 5,
+     "grid": [
+      "HERO#",
+      "EXAM#",
+      "RIDER",
+      "#SAGA",
+      "#TRAY"
+     ],
+     "clues": [
+      {
+       "d": "A",
+       "n": 1,
+       "q": "Champion found in the roughest (4)",
+       "w": {
+        "t": "hidden",
+        "text": "the roughest",
+        "ind": "found in"
+       }
+      },
+      {
+       "d": "D",
+       "n": 1,
+       "q": "That woman seen in other (3)",
+       "w": {
+        "t": "hidden",
+        "text": "other",
+        "ind": "seen in"
+       }
+      },
+      {
+       "d": "D",
+       "n": 2,
+       "q": "Live: exits, rearranged (5)",
+       "w": {
+        "t": "anagram",
+        "fodder": "EXITS",
+        "ind": "rearranged"
+       }
+      },
+      {
+       "d": "D",
+       "n": 3,
+       "q": "Tracking system, the same reading backwards (5)",
+       "w": {
+        "t": "reversal",
+        "src": "RADAR",
+        "gloss": "itself",
+        "ind": "backwards"
+       }
+      },
+      {
+       "d": "D",
+       "n": 4,
+       "q": "End of the Greek alphabet: round and huge (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "O",
+          "round"
+         ],
+         [
+          "MEGA",
+          "huge"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 5,
+       "q": "Test: former and morning (4)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "EX",
+          "former"
+         ],
+         [
+          "AM",
+          "morning"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 6,
+       "q": "Horseman: drier, awkwardly (5)",
+       "w": {
+        "t": "anagram",
+        "fodder": "DRIER",
+        "ind": "awkwardly"
+       }
+      },
+      {
+       "d": "D",
+       "n": 7,
+       "q": "Beam: right, yes (3)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "R",
+          "right"
+         ],
+         [
+          "AY",
+          "yes"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 8,
+       "q": "Long story: droop and a (4)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "SAG",
+          "droop"
+         ],
+         [
+          "A",
+          "a"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 9,
+       "q": "Server’s plate: stray, losing S (4)",
+       "w": {
+        "t": "deletion",
+        "src": "STRAY",
+        "removed": "S",
+        "ind": "losing"
+       }
+      }
+     ]
+    },
+    {
+     "id": "mini-4",
+     "size": 5,
+     "grid": [
+      "##EAT",
+      "SCARE",
+      "HOTEL",
+      "IDEAL",
+      "PEN##"
+     ],
+     "clues": [
+      {
+       "d": "A",
+       "n": 1,
+       "q": "Consume: tea, mixed up (3)",
+       "w": {
+        "t": "anagram",
+        "fodder": "TEA",
+        "ind": "mixed"
+       }
+      },
+      {
+       "d": "D",
+       "n": 1,
+       "q": "Consumed: have a meal, then printing space (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "EAT",
+          "have a meal"
+         ],
+         [
+          "EN",
+          "printing space"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "D",
+       "n": 2,
+       "q": "Region: a period, going back (4)",
+       "w": {
+        "t": "reversal",
+        "src": "AERA",
+        "gloss": "a period",
+        "ind": "going back"
+       }
+      },
+      {
+       "d": "D",
+       "n": 3,
+       "q": "Reveal; or count (4)",
+       "w": {
+        "t": "double"
+       }
+      },
+      {
+       "d": "A",
+       "n": 4,
+       "q": "Fright found in Oscar eats (5)",
+       "w": {
+        "t": "hidden",
+        "text": "Oscar eats",
+        "ind": "found in"
+       }
+      },
+      {
+       "d": "D",
+       "n": 4,
+       "q": "Vessel; or send by post (4)",
+       "w": {
+        "t": "double"
+       }
+      },
+      {
+       "d": "D",
+       "n": 5,
+       "q": "Cipher: about poem (4)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "C",
+          "about"
+         ],
+         [
+          "ODE",
+          "poem"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 6,
+       "q": "Inn: spicy with elevated railway (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "HOT",
+          "spicy"
+         ],
+         [
+          "EL",
+          "elevated railway"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 7,
+       "q": "Perfect: ailed, redone (5)",
+       "w": {
+        "t": "anagram",
+        "fodder": "AILED",
+        "ind": "redone"
+       }
+      },
+      {
+       "d": "A",
+       "n": 8,
+       "q": "Writing tool: exercise and new (3)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "PE",
+          "exercise"
+         ],
+         [
+          "N",
+          "new"
+         ]
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "mini-5",
+     "size": 5,
+     "grid": [
+      "EAST#",
+      "ALTER",
+      "CLONE",
+      "HORSE",
+      "#WEED"
+     ],
+     "clues": [
+      {
+       "d": "A",
+       "n": 1,
+       "q": "Direction: seat, moved (4)",
+       "w": {
+        "t": "anagram",
+        "fodder": "SEAT",
+        "ind": "moved"
+       }
+      },
+      {
+       "d": "D",
+       "n": 1,
+       "q": "Every one seen in beach (4)",
+       "w": {
+        "t": "hidden",
+        "text": "beach",
+        "ind": "seen in"
+       }
+      },
+      {
+       "d": "D",
+       "n": 2,
+       "q": "Permit: everyone, then cry of pain (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "ALL",
+          "everyone"
+         ],
+         [
+          "OW",
+          "cry of pain"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "D",
+       "n": 3,
+       "q": "Shop: restore, losing its first two letters (5)",
+       "w": {
+        "t": "deletion",
+        "src": "RESTORE",
+        "removed": "RE",
+        "ind": "losing"
+       }
+      },
+      {
+       "d": "D",
+       "n": 4,
+       "q": "Strained: number and southeast (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "TEN",
+          "number"
+         ],
+         [
+          "SE",
+          "southeast"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 5,
+       "q": "Change: alert, rearranged (5)",
+       "w": {
+        "t": "anagram",
+        "fodder": "ALERT",
+        "ind": "rearranged"
+       }
+      },
+      {
+       "d": "D",
+       "n": 6,
+       "q": "Plant; or part of a woodwind (4)",
+       "w": {
+        "t": "double"
+       }
+      },
+      {
+       "d": "A",
+       "n": 7,
+       "q": "Copy: about single (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "C",
+          "about"
+         ],
+         [
+          "LONE",
+          "single"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 8,
+       "q": "Animal: shore, changed (5)",
+       "w": {
+        "t": "anagram",
+        "fodder": "SHORE",
+        "ind": "changed"
+       }
+      },
+      {
+       "d": "A",
+       "n": 9,
+       "q": "Unwanted plant; or remove such growth (4)",
+       "w": {
+        "t": "double"
+       }
+      }
+     ]
+    },
+    {
+     "id": "mini-6",
+     "size": 5,
+     "grid": [
+      "#TEST",
+      "LANCE",
+      "INDEX",
+      "AGENT",
+      "RODE#"
+     ],
+     "clues": [
+      {
+       "d": "A",
+       "n": 1,
+       "q": "Exam; or try out (4)",
+       "w": {
+        "t": "double"
+       }
+      },
+      {
+       "d": "D",
+       "n": 1,
+       "q": "Dance: brown and try (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "TAN",
+          "brown"
+         ],
+         [
+          "GO",
+          "try"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "D",
+       "n": 2,
+       "q": "Over: finish, then editor (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "END",
+          "finish"
+         ],
+         [
+          "ED",
+          "editor"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "D",
+       "n": 3,
+       "q": "Setting found in obscene (5)",
+       "w": {
+        "t": "hidden",
+        "text": "obscene",
+        "ind": "found in"
+       }
+      },
+      {
+       "d": "D",
+       "n": 4,
+       "q": "Message: context, with con lost (4)",
+       "w": {
+        "t": "deletion",
+        "src": "CONTEXT",
+        "removed": "CON",
+        "ind": "lost"
+       }
+      },
+      {
+       "d": "A",
+       "n": 5,
+       "q": "Spear found in balance (5)",
+       "w": {
+        "t": "hidden",
+        "text": "balance",
+        "ind": "found in"
+       }
+      },
+      {
+       "d": "D",
+       "n": 5,
+       "q": "Fibber: rail, bent (4)",
+       "w": {
+        "t": "anagram",
+        "fodder": "RAIL",
+        "ind": "bent"
+       }
+      },
+      {
+       "d": "A",
+       "n": 6,
+       "q": "Pointer: at home, died, former partner (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "IN",
+          "at home"
+         ],
+         [
+          "D",
+          "died"
+         ],
+         [
+          "EX",
+          "former partner"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 7,
+       "q": "Spy: era plus New Testament (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "AGE",
+          "era"
+         ],
+         [
+          "NT",
+          "New Testament"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 8,
+       "q": "Travelled by horse: doer, changed (4)",
+       "w": {
+        "t": "anagram",
+        "fodder": "DOER",
+        "ind": "changed"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cube-5-2",
+   "name": "Cube 2",
+   "size": 5,
+   "faces": [
+    {
+     "id": "c2-1",
+     "size": 5,
+     "grid": [
+      "##WEB",
+      "STOLE",
+      "HOUSE",
+      "OWNER",
+      "END##"
+     ],
+     "clues": [
+      {
+       "d": "A",
+       "n": 1,
+       "q": "Net seen in cobweb (3)",
+       "w": {
+        "t": "hidden",
+        "text": "cobweb",
+        "ind": "seen in"
+       }
+      },
+      {
+       "d": "D",
+       "n": 1,
+       "q": "Injury; or coiled (5)",
+       "w": {
+        "t": "double"
+       }
+      },
+      {
+       "d": "D",
+       "n": 2,
+       "q": "Otherwise seen in wheel set (4)",
+       "w": {
+        "t": "hidden",
+        "text": "wheel set",
+        "ind": "seen in"
+       }
+      },
+      {
+       "d": "D",
+       "n": 3,
+       "q": "Pub drink: live, then hesitation (4)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "BE",
+          "live"
+         ],
+         [
+          "ER",
+          "hesitation"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 4,
+       "q": "Took; or a wrap (5)",
+       "w": {
+        "t": "double"
+       }
+      },
+      {
+       "d": "D",
+       "n": 4,
+       "q": "Footwear: hose, reworked (4)",
+       "w": {
+        "t": "anagram",
+        "fodder": "HOSE",
+        "ind": "reworked"
+       }
+      },
+      {
+       "d": "D",
+       "n": 5,
+       "q": "Small city: pull and new (4)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "TOW",
+          "pull"
+         ],
+         [
+          "N",
+          "new"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 6,
+       "q": "Home: hospital by Yorkshire river (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "H",
+          "hospital"
+         ],
+         [
+          "OUSE",
+          "river"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 7,
+       "q": "Proprietor: downer, losing D (5)",
+       "w": {
+        "t": "deletion",
+        "src": "DOWNER",
+        "removed": "D",
+        "ind": "losing"
+       }
+      },
+      {
+       "d": "A",
+       "n": 8,
+       "q": "Finish: den, rearranged (3)",
+       "w": {
+        "t": "anagram",
+        "fodder": "DEN",
+        "ind": "rearranged"
+       }
+      }
+     ]
+    },
+    {
+     "id": "c2-2",
+     "size": 5,
+     "grid": [
+      "#MET#",
+      "BOARD",
+      "ANGER",
+      "DELAY",
+      "#YET#"
+     ],
+     "clues": [
+      {
+       "d": "A",
+       "n": 1,
+       "q": "Encountered: me and time (3)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "ME",
+          "me"
+         ],
+         [
+          "T",
+          "time"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "D",
+       "n": 1,
+       "q": "Cash found in salmon eyes (5)",
+       "w": {
+        "t": "hidden",
+        "text": "salmon eyes",
+        "ind": "found in"
+       }
+      },
+      {
+       "d": "D",
+       "n": 2,
+       "q": "Bird seen in the aglet (5)",
+       "w": {
+        "t": "hidden",
+        "text": "the aglet",
+        "ind": "seen in"
+       }
+      },
+      {
+       "d": "D",
+       "n": 3,
+       "q": "Delicacy; or deal with (5)",
+       "w": {
+        "t": "double"
+       }
+      },
+      {
+       "d": "A",
+       "n": 4,
+       "q": "Get on a ship: snake and road (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "BOA",
+          "snake"
+         ],
+         [
+          "RD",
+          "road"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "D",
+       "n": 4,
+       "q": "Naughty: dab, mixed (3)",
+       "w": {
+        "t": "anagram",
+        "fodder": "DAB",
+        "ind": "mixed"
+       }
+      },
+      {
+       "d": "D",
+       "n": 5,
+       "q": "Not wet; or boring (3)",
+       "w": {
+        "t": "double"
+       }
+      },
+      {
+       "d": "A",
+       "n": 6,
+       "q": "Fury: range, upset (5)",
+       "w": {
+        "t": "anagram",
+        "fodder": "RANGE",
+        "ind": "upset"
+       }
+      },
+      {
+       "d": "A",
+       "n": 7,
+       "q": "Hold up: delete key and yes (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "DEL",
+          "delete key"
+         ],
+         [
+          "AY",
+          "yes"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 8,
+       "q": "Still; or so far (3)",
+       "w": {
+        "t": "double"
+       }
+      }
+     ]
+    },
+    {
+     "id": "c2-3",
+     "size": 5,
+     "grid": [
+      "#LAST",
+      "#ONTO",
+      "TOKEN",
+      "ISLE#",
+      "PEEL#"
+     ],
+     "clues": [
+      {
+       "d": "A",
+       "n": 1,
+       "q": "Final: salt, spilled (4)",
+       "w": {
+        "t": "anagram",
+        "fodder": "SALT",
+        "ind": "spilled"
+       }
+      },
+      {
+       "d": "D",
+       "n": 1,
+       "q": "Slack: toilet and southeast (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "LOO",
+          "toilet"
+         ],
+         [
+          "SE",
+          "southeast"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "D",
+       "n": 2,
+       "q": "Joint seen in Frank left (5)",
+       "w": {
+        "t": "hidden",
+        "text": "Frank left",
+        "ind": "seen in"
+       }
+      },
+      {
+       "d": "D",
+       "n": 3,
+       "q": "Metal: saint and fish (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "ST",
+          "saint"
+         ],
+         [
+          "EEL",
+          "fish"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "D",
+       "n": 4,
+       "q": "Hundred: not, changed (3)",
+       "w": {
+        "t": "anagram",
+        "fodder": "NOT",
+        "ind": "changed"
+       }
+      },
+      {
+       "d": "A",
+       "n": 5,
+       "q": "Upon: working plus towards (4)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "ON",
+          "working"
+         ],
+         [
+          "TO",
+          "towards"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 6,
+       "q": "Symbol: towards knowledge (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "TO",
+          "towards"
+         ],
+         [
+          "KEN",
+          "knowledge"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "D",
+       "n": 6,
+       "q": "Hint: hole, going back (3)",
+       "w": {
+        "t": "reversal",
+        "src": "PIT",
+        "gloss": "hole",
+        "ind": "going back"
+       }
+      },
+      {
+       "d": "A",
+       "n": 7,
+       "q": "Island: lies, shuffled (4)",
+       "w": {
+        "t": "anagram",
+        "fodder": "LIES",
+        "ind": "shuffled"
+       }
+      },
+      {
+       "d": "A",
+       "n": 8,
+       "q": "Skin; or take off skin (4)",
+       "w": {
+        "t": "double"
+       }
+      }
+     ]
+    },
+    {
+     "id": "c2-4",
+     "size": 5,
+     "grid": [
+      "##MOB",
+      "ABOVE",
+      "LEVEL",
+      "SAINT",
+      "ONE##"
+     ],
+     "clues": [
+      {
+       "d": "A",
+       "n": 1,
+       "q": "Crowd; or surround noisily (3)",
+       "w": {
+        "t": "double"
+       }
+      },
+      {
+       "d": "D",
+       "n": 1,
+       "q": "Film: moment and compete (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "MO",
+          "moment"
+         ],
+         [
+          "VIE",
+          "compete"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "D",
+       "n": 2,
+       "q": "Cooker: ovens, losing last letter (4)",
+       "w": {
+        "t": "deletion",
+        "src": "OVENS",
+        "removed": "S",
+        "ind": "losing"
+       }
+      },
+      {
+       "d": "D",
+       "n": 3,
+       "q": "Strap; or hit hard (4)",
+       "w": {
+        "t": "double"
+       }
+      },
+      {
+       "d": "A",
+       "n": 4,
+       "q": "Higher up, seen in cab over (5)",
+       "w": {
+        "t": "hidden",
+        "text": "cab over",
+        "ind": "seen in"
+       }
+      },
+      {
+       "d": "D",
+       "n": 4,
+       "q": "As well, found in pal sold (4)",
+       "w": {
+        "t": "hidden",
+        "text": "pal sold",
+        "ind": "found in"
+       }
+      },
+      {
+       "d": "D",
+       "n": 5,
+       "q": "Legume: live and a (4)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "BE",
+          "live"
+         ],
+         [
+          "AN",
+          "a"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 6,
+       "q": "Flat; or storey (5)",
+       "w": {
+        "t": "double"
+       }
+      },
+      {
+       "d": "A",
+       "n": 7,
+       "q": "Holy person: stain, mixed (5)",
+       "w": {
+        "t": "anagram",
+        "fodder": "STAIN",
+        "ind": "mixed"
+       }
+      },
+      {
+       "d": "A",
+       "n": 8,
+       "q": "Single: eon, changed (3)",
+       "w": {
+        "t": "anagram",
+        "fodder": "EON",
+        "ind": "changed"
+       }
+      }
+     ]
+    },
+    {
+     "id": "c2-5",
+     "size": 5,
+     "grid": [
+      "#SAT#",
+      "POLAR",
+      "ALIKE",
+      "LIVED",
+      "#DEN#"
+     ],
+     "clues": [
+      {
+       "d": "A",
+       "n": 1,
+       "q": "Rested, seen in this atlas (3)",
+       "w": {
+        "t": "hidden",
+        "text": "this atlas",
+        "ind": "seen in"
+       }
+      },
+      {
+       "d": "D",
+       "n": 1,
+       "q": "Firm: sun and identification (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "SOL",
+          "sun"
+         ],
+         [
+          "ID",
+          "identification"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "D",
+       "n": 2,
+       "q": "Living: a plus on air (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "A",
+          "a"
+         ],
+         [
+          "LIVE",
+          "on air"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "D",
+       "n": 3,
+       "q": "Seized: grab and north (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "TAKE",
+          "grab"
+         ],
+         [
+          "N",
+          "north"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 4,
+       "q": "Arctic: Polaris, losing the end (5)",
+       "w": {
+        "t": "deletion",
+        "src": "POLARIS",
+        "removed": "IS",
+        "ind": "losing"
+       }
+      },
+      {
+       "d": "D",
+       "n": 4,
+       "q": "Friend: knee area, returned (3)",
+       "w": {
+        "t": "reversal",
+        "src": "LAP",
+        "gloss": "knee area",
+        "ind": "returned"
+       }
+      },
+      {
+       "d": "D",
+       "n": 5,
+       "q": "Colour; or in debt (3)",
+       "w": {
+        "t": "double"
+       }
+      },
+      {
+       "d": "A",
+       "n": 6,
+       "q": "Similar: a plus fond of (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "A",
+          "a"
+         ],
+         [
+          "LIKE",
+          "fond of"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 7,
+       "q": "Existed: devil, rearranged (5)",
+       "w": {
+        "t": "anagram",
+        "fodder": "DEVIL",
+        "ind": "rearranged"
+       }
+      },
+      {
+       "d": "A",
+       "n": 8,
+       "q": "Lair: end, mixed up (3)",
+       "w": {
+        "t": "anagram",
+        "fodder": "END",
+        "ind": "mixed"
+       }
+      }
+     ]
+    },
+    {
+     "id": "c2-6",
+     "size": 5,
+     "grid": [
+      "##HUG",
+      "CRANE",
+      "ROBIN",
+      "ELITE",
+      "WET##"
+     ],
+     "clues": [
+      {
+       "d": "A",
+       "n": 1,
+       "q": "Embrace seen in the huge (3)",
+       "w": {
+        "t": "hidden",
+        "text": "the huge",
+        "ind": "seen in"
+       }
+      },
+      {
+       "d": "D",
+       "n": 1,
+       "q": "Custom: laugh and piece (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "HA",
+          "laugh"
+         ],
+         [
+          "BIT",
+          "piece"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "D",
+       "n": 2,
+       "q": "Single item: posh and louse egg (4)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "U",
+          "posh"
+         ],
+         [
+          "NIT",
+          "louse egg"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "D",
+       "n": 3,
+       "q": "Hereditary unit found in bridge near (4)",
+       "w": {
+        "t": "hidden",
+        "text": "bridge near",
+        "ind": "found in"
+       }
+      },
+      {
+       "d": "A",
+       "n": 4,
+       "q": "Bird; or lifting machine (5)",
+       "w": {
+        "t": "double"
+       }
+      },
+      {
+       "d": "D",
+       "n": 4,
+       "q": "Sailors; or did the rooster call (4)",
+       "w": {
+        "t": "double"
+       }
+      },
+      {
+       "d": "D",
+       "n": 5,
+       "q": "Part: lore, rearranged (4)",
+       "w": {
+        "t": "anagram",
+        "fodder": "LORE",
+        "ind": "rearranged"
+       }
+      },
+      {
+       "d": "A",
+       "n": 6,
+       "q": "Bird: steal and at home (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "ROB",
+          "steal"
+         ],
+         [
+          "IN",
+          "at home"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 7,
+       "q": "Top group: English and low-fat (5)",
+       "w": {
+        "t": "charade",
+        "parts": [
+         [
+          "E",
+          "English"
+         ],
+         [
+          "LITE",
+          "low-fat"
+         ]
+        ]
+       }
+      },
+      {
+       "d": "A",
+       "n": 8,
+       "q": "Damp; or feeble person (3)",
+       "w": {
+        "t": "double"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

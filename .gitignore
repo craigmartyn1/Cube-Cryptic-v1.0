@@ -1,0 +1,16 @@
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Build output
+dist/
+build/
+*.apk
+*.aab
+
+# Local environment/secrets
+.env
+.env.*
+!.env.example
